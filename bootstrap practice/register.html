@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f9f9e9;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            width: 100%;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Registration</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter your password">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="agreeTerms">
+                <label class="form-check-label" for="agreeTerms">I agree to the terms and conditions</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+        <div class="footer mt-4">
+            <p>&copy; 2022 Your Website. All rights reserved.</p>
+            <p>Already have an account? <a href="login.html" id="loginLink">Login</a></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js"></script>
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCXlkxY4N864vCnsDFmIZEq_h4KKK7UgRk",
+            authDomain: "practice-270c8.firebaseapp.com",
+            projectId: "practice-270c8",
+            storageBucket: "practice-270c8.appspot.com",
+            messagingSenderId: "724894961239",
+            appId: "1:724894961239:web:dbaca336f0b757e8e35d12",
+            measurementId: "G-NCES9V2J1S"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the database service
+        const database = firebase.database();
+
+        // Registration form submit event
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+
+            if (!agreeTerms) {
+                console.error('Please agree to the terms and conditions.');
+                return;
+            }
+
+            // Check if the user already exists
+            const encodedEmail = btoa(email);
+            const userRef = database.ref('users/' + encodedEmail);
+            userRef.once('value')
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        console.error('User already exists');
+                        // Handle accordingly, e.g., display an error message to the user
+                    } else {
+                        // User does not exist, proceed with registration
+                        firebase.auth().createUserWithEmailAndPassword(email, password)
+                            .then((userCredential) => {
+                                // User registered successfully
+                                const user = userCredential.user;
+                                console.log('User registered:', user);
+
+                                // Save user data to the database
+                                userRef.update({
+                                    username: username,
+                                    password: password
+                                });
+
+                                // Redirect to the home page or perform any other action
+                                window.location.href = "home.html";
+                            })
+                            .catch((error) => {
+                                // Handle registration error
+                                const errorCode = error.code;
+                                const errorMessage = error.message;
+                                console.error('Registration error:', errorCode, errorMessage);
+                            });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error checking user existence:', error.message);
+                });
+        });
+
+        // Login link click event
+        document.getElementById('loginLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+
+</html>

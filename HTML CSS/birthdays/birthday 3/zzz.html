@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Puddles&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>hello</title>
+  </head>
+
+  <body>
+    <div class="area1">
+      <canvas id="birthday"> </canvas>
+      <h1 align="center">Happy Birthday Bro</h1>
+    </div>
+
+    <div class="area2">
+      <div class="img1"><img src="img11.png" width="40%" alt="img" /></div>
+      <div class="h2"><h2 align="center">Name Here</h2></div>
+    </div>
+
+    <div class="area3">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+      accusantium iusto sint expedita voluptatibus velit eaque modi laudantium
+      impedit molestiae veritatis, quas sed atque voluptates alias libero
+      consectetur error excepturi?</p>
+    </div>
+    <div class="area4">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat debitis
+      autem dicta quisquam magnam distinctio at illum, minima nulla aspernatur
+      ipsam, id nemo culpa doloribus fugiat ducimus tempora aperiam? Aspernatur?</p>
+    </div>
+
+    <footer>
+      <audio controls autoplay loop hidden>
+        <source src="b.mp3" type="audio/ogg" />
+        <source src="b.mp3" type="audio/mpeg" />
+      </audio>
+    </footer>
+  </body>
+
+  <style>
+    h1 {
+      font-family: cursive;
+      text-shadow: 0px 0px 50px rgb(255, 255, 0);
+      color: #fff;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* font-family: "Source Sans Pro";
+        font-family: 'Rubik Puddles', cursive; */
+      font-variant: small-caps;
+      font-size: 15vh;
+      font-weight: 900;
+      -webkit-user-select: none;
+      user-select: none;
+      
+    }
+
+    h2 {
+      color: rgb(255, 251, 0);
+      /* font-family: cursive; */
+      font-family: "Press Start 2P", cursive;
+      text-shadow: 4px 4px #aaa;
+      font-size: 6vh;
+      display: inline-block;
+      padding-inline: 10px;
+      background: linear-gradient(45deg, red, blue);
+      border: solid 3px;
+    }
+
+    .area2 {
+      background-image: url(https://i.pinimg.com/originals/9e/45/7f/9e457f19eabaa71335b2b5fb8a74830f.jpg);
+      background-size: contain;
+    }
+
+    .area3 {
+      /* background-color: rgb(0, 217, 255); */
+      background-image: linear-gradient(to right, #ff004c 0%, #fee140 100%);
+      width: 50%;
+      height: 40vh;
+      display: inline-block;
+      margin: -4px;
+
+    }
+    .area4 {
+      background-image: linear-gradient(to right, #fee140 0%, #ff004c 100%);
+      width: 50%;
+      height: 40vh;
+      display: inline-block;
+      border-left: none;
+      border-right: #ff004c right 10px;
+ 
+    }
+
+    img {
+      border: 3px dotted rgb(221, 255, 0);
+      margin-top: 10%;
+      border-radius: 50%;
+    }
+
+    body {
+      /* background-image: url(https://i.pinimg.com/originals/9e/45/7f/9e457f19eabaa71335b2b5fb8a74830f.jpg); */
+      text-align: center;
+      margin: 0;
+      cursor: crosshair;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+
+  <script>
+    const PI2 = Math.PI * 2;
+    const random = (min, max) => (Math.random() * (max - min + 1) + min) | 0;
+    const timestamp = (_) => new Date().getTime();
+
+    class Birthday {
+      constructor() {
+        this.resize();
+        this.fireworks = [];
+        this.counter = 0;
+      }
+
+      resize() {
+        this.width = canvas.width = window.innerWidth;
+        let center = (this.width / 2) | 0;
+        this.spawnA = (center - center / 4) | 0;
+        this.spawnB = (center + center / 4) | 0;
+        this.height = canvas.height = window.innerHeight;
+        this.spawnC = this.height * 0.1;
+        this.spawnD = this.height * 0.5;
+      }
+      onClick(evt) {
+        let x = evt.clientX || (evt.touches && evt.touches[0].pageX);
+        let y = evt.clientY || (evt.touches && evt.touches[0].pageY);
+        let count = random(3, 5);
+        for (let i = 0; i < count; i++)
+          this.fireworks.push(
+            new Firework(
+              random(this.spawnA, this.spawnB),
+              this.height,
+              x,
+              y,
+              random(0, 260),
+              random(30, 110)
+            )
+          );
+        this.counter = -1;
+      }
+      update(delta) {
+        ctx.globalCompositeOperation = "hard-light";
+        ctx.fillStyle = `rgba(20,20,20,${7 * delta})`;
+        ctx.fillRect(0, 0, this.width, this.height);
+        ctx.globalCompositeOperation = "lighter";
+        for (let firework of this.fireworks) firework.update(delta);
+        this.counter += delta * 3;
+        if (this.counter >= 1) {
+          this.fireworks.push(
+            new Firework(
+              random(this.spawnA, this.spawnB),
+              this.height,
+              random(0, this.width),
+              random(this.spawnC, this.spawnD),
+              random(0, 360),
+              random(30, 110)
+            )
+          );
+          this.counter = 0;
+        }
+        if (this.fireworks.length > 1000)
+          this.fireworks = this.fireworks.filter((firework) => !firework.dead);
+      }
+    }
+    class Firework {
+      constructor(x, y, targetX, targetY, shade, offsprings) {
+        this.dead = false;
+        this.offsprings = offsprings;
+        this.x = x;
+        this.y = y;
+        this.targetX = targetX;
+        this.targetY = targetY;
+        this.shade = shade;
+        this.history = [];
+      }
+      update(delta) {
+        if (this.dead) return;
+        let xDiff = this.targetX - this.x;
+        let yDiff = this.targetY - this.y;
+        if (Math.abs(xDiff) > 3 || Math.abs(yDiff) > 3) {
+          // is still moving
+          this.x += xDiff * 2 * delta;
+          this.y += yDiff * 2 * delta;
+          this.history.push({
+            x: this.x,
+            y: this.y,
+          });
+
+          if (this.history.length > 20) this.history.shift();
+        } else {
+          if (this.offsprings && !this.madeChilds) {
+            let babies = this.offsprings / 2;
+            for (let i = 0; i < babies; i++) {
+              let targetX =
+                (this.x + this.offsprings * Math.cos((PI2 * i) / babies)) | 0;
+              let targetY =
+                (this.y + this.offsprings * Math.sin((PI2 * i) / babies)) | 0;
+
+              birthday.fireworks.push(
+                new Firework(this.x, this.y, targetX, targetY, this.shade, 0)
+              );
+            }
+          }
+          this.madeChilds = true;
+          this.history.shift();
+        }
+        if (this.history.length === 0) this.dead = true;
+        else if (this.offsprings) {
+          for (let i = 0; this.history.length > i; i++) {
+            let point = this.history[i];
+            ctx.beginPath();
+            ctx.fillStyle = "hsl(" + this.shade + ",100%," + i + "%)";
+            ctx.arc(point.x, point.y, 1, 0, PI2, false);
+            ctx.fill();
+          }
+        } else {
+          ctx.beginPath();
+          ctx.fillStyle = "hsl(" + this.shade + ",100%,50%)";
+          ctx.arc(this.x, this.y, 1, 0, PI2, false);
+          ctx.fill();
+        }
+      }
+    }
+    let canvas = document.getElementById("birthday");
+    let ctx = canvas.getContext("2d");
+
+    let then = timestamp();
+
+    let birthday = new Birthday();
+    window.onresize = () => birthday.resize();
+    document.onclick = (evt) => birthday.onClick(evt);
+    document.ontouchstart = (evt) => birthday.onClick(evt);
+    (function loop() {
+      requestAnimationFrame(loop);
+      let now = timestamp();
+      let delta = now - then;
+      then = now;
+      birthday.update(delta / 1000);
+    })();
+  </script>
+</html>

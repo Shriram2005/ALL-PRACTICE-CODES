@@ -1,0 +1,43 @@
+if   continue 
+break 
+switch   case1,case2      default
+fibonacci number 
+&  address of
+
+ctrl+k+c   add comments
+ctrl+k+u   remove comments
+ctrl+d	alt+mouse	  multiline edit
+
+*  value at address
+&  address of
+
+\t tab space
+\o null character  in char string
+%s string    string ,name;			no& in string scanf
+ 
+function recursion
+
+
+gets(str);	//expired 
+	fgets(str,n,stdin);
+puts(str);
+
+strcat(a,b)		//string a+b
+
+string and array are pointers
+
+
+<string.h>		%d,strlen(arr);length of arra	y  string
+
+
+fibonacci formula  fib[i]=fib[i-1]+fib[i-2])
+
+typedef //struct .. .{..}//small name;			//to short name 
+
+append -add new data in old file
+
+C is a general-purpose imperative language\
+
+read and write from file-
+fscanf  //  using fgetc
+fprintf	//  using fputc

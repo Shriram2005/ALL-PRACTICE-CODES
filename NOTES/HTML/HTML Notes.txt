@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+html is not case sensitive
+
+
+ anchor tag	a href		<a href="https://www.google.com/">Google</a><br>
+						<a href="first.html">My first website</a>
+
+<img src=""alt "apple"height"100"/>
+
+<br>  or   <br/>
+
+
+relative link // absolute link
+
+<!--  comments  -->
+
+<hr>		rural line create
+
+semantic tags and non semantic tag's
+
+<div></div>   is block element (takes full width)
+			it is like a container or area to divide contents
+
+span is like div 	//it taks limited space needed no extra
+
+List:
+ul 	unordered list 
+ol	ordered list
+li	list item
+
+Table:
+tr			table row 
+th			table head
+td			table data
+caption		for heading of table
+Thead		for dividing in inspect
+tbody		for dividing in inspect
+colspan 		to combine two or more table headigs
+
+Form:
+label		for full word select
+placeholder	background text
+
+input type==		text
+				radio
+				checkbox
+				submit  //value
+value""
+
+id=""				for dividing to use different attributes in label form
+					id can be used in div	
+
+Class=""  id=""			for dividing id in different groups to use different attributes at once

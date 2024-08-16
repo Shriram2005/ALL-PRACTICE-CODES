@@ -1,0 +1,6 @@
+lists 		names[]	//index   //same values allowed
+touples		names()	//values cannot be changed	//its by default
+sets			names{}	//no index   //same values not allowed
+
+touple does not change			//touple is ordered
+no index exist in sets		//cant print without loops		//unordered

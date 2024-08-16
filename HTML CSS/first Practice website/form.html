@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Third page</title>
+</head>
+
+<body>
+    <header>
+        <h3>Lists and Tables:</h3>
+    </header>
+    <main>
+        <h4>Lists of fruits:(Un-ordered)</h4>
+
+        <ul>
+            <li>Apple</li>
+            <ul>
+                <li>Colour : Red</li>
+                <li>Season : Winters</li>
+            </ul>
+            <li>Mango</li>
+            <ul>
+                <li>Colour : Orange</li>
+                <li>Season : Summers</li>
+            </ul>
+            <li>banana</li>
+        </ul> <br>
+        <!--un-ordered List-->
+
+        <h4>List of fruits:(ordered)</h4>
+
+        <ol>
+            <li>Apple</li>
+            <ol>
+                <li>Colour : Red</li>
+                <li>Season : Winters</li>
+            </ol>
+            <li>Mango</li>
+            <ol>
+                <li>Colour : Orange</li>
+                <li>Season : Summers</li>
+            </ol>
+            <li>banana</li>
+        </ol> <br>
+        <!--Ordered list (having numbers)
+only difference is li and ol-->
+
+        <h3>Tables : </h3>
+
+        <table>
+            <caption><b>Student data</b></caption>
+            <thead>
+                <tr>
+                    <th colspan="3">INFORMTION</th>
+                    <!-- <th>Roll No.</th>
+                    <th>Class</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Anuj</td>
+                    <td>22</td>
+                    <td>11th</td>
+                </tr>
+                <tr>
+                    <td>Aditya</td>
+                    <td>23</td>
+                    <td>12th</td>
+                </tr>
+                <tr>
+                    <td>Omkar</td>
+                    <td>44</td>
+                    <td>12th</td>
+                </tr>
+            </tbody>
+        </table> <br>
+
+        <h3>Registration Form:</h3>
+        <form action="action.php">
+            <input type="text" placeholder="enter your gmail">
+            <!-- </form>
+            <form action="action.php"> -->
+            <input type="password" placeholder="password"><br><br>
+            <div div="1">
+                <small>Select your class:</small>
+
+                <label for="101"><input type="radio" value="class X" name="class" id="101">Class X
+                </label>
+                <label for="102">
+                    <input type="radio" value="class XII" name="class" id="102">Class XII
+                </label>
+                <br>
+
+                <small>Select your Division:</small>
+                <label for="11">
+                    <input type="radio" value="Division A" name="division" i id="11">A
+                </label>
+                <label for="12">
+                    <input type="radio" value="Division B" name="division" id="12" class="group1">B
+                </label>
+                <br><br>
+            </div>
+
+            <div id="div2">
+                Select your favourate subject:<br>
+                <label for="sub1">
+                    <input type="checkbox" value="Physics" name="subject" id="sub1">Physics <br></label>
+
+                <label for="sub2">
+                    <input type="checkbox" value='chrmistry' name="subject" id="sub2">Chemistry <br></label>
+
+                <label for="sub3">
+                    <input type="checkbox" value="Maths" name="subject" id="sub3">Maths <br></label>
+
+                <label for="sub4">
+                    <input type="checkbox" value="Computer Science" name="subject" id="sub4">Computer Science
+                </label>
+            </div> <br>
+
+
+
+            <div>
+                Select your City:
+                <select name="city" id="city">
+                    <option value="mumbai">Mumbai</option>
+                    <option value="nashik">Nashik</option>
+                    <option value="pune">Pune</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="nagpur">Nagpur</option>
+                    <option value="dhule">Dhule</option>
+                    <option value="latur">Latur</option>
+                </select>
+            </div>
+
+            <br><br>
+
+            <div id="div3">
+                <small>Enter your feedback here:</small><br>
+                <textarea name="Feedback" placeholder="Enter your valuable feedback here" rows="5"></textarea>
+            </div>
+
+            <br>
+            <div id="div4">
+                <input type="submit" value="Submit"></type>
+            </div>
+
+        </form>
+    </main>
+</body>
+
+</html>

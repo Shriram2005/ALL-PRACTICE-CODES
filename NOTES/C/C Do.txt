@@ -1,0 +1,8 @@
+array advance
+function recurssion
+fibonacci number
+structure student ex
+pointers to..
+array of structures
+fopen fclose
+last chapter dynamic allocation

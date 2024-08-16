@@ -1,0 +1,36 @@
+Student Name:shriram
+Student age:18
+CGPA:9.500000
+
+Student Name:yash
+Student age:19
+CGPA:7.500000
+
+Student Name:sohan
+Student age:17
+CGPA:6.500000
+
+Student Name:shivam
+Student age:19
+CGPA:7.600000
+
+Student Name:cd
+Student age:19
+CGPA:4.000000
+
+Student Name:mansi
+Student age:19
+CGPA:8.500000
+
+Student Name:atharva
+Student age:9
+CGPA:7.500000
+
+Student Name:anuj
+Student age:19
+CGPA:8.500000
+
+Student Name:omkar
+Student age:20
+CGPA:8.700000
+

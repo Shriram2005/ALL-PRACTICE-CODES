@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONIMASU STORE</title>
+    <link rel="stylesheet" href="first.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <div class="container">
+            <div class="nav navbar">
+                <div class="logo">
+                    <img src="oni.png" width="160px">
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="first.html">Home</a></li>
+                        <li><a href="1stprodcut.html">Products</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="cntact.html">Contact</a></li>
+                        <li><a href="acc.html">My Profile</a></li>
+                    </ul>
+                </nav>
+                <p><a href="cart.html"><img src="cart.png" width="30px" height="30px"></a></p>
+                <img src="menu.png" class="menu-icon" onclick="menutoggle()"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <!--contact us-->
+
+    <section class="location">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14997.193214492097!2d73.7470536!3d19.9959911!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x594ebe241dda1024!2sESDS%20Software%20Solution%20Limited!5e0!3m2!1sen!2sin!4v1675360852298!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </section>
+
+    <section>
+
+        <section class="contact-us">
+
+            <div class="row">
+                <div class="contact-col">
+                    <div>
+                        <i class="fa fa-home"></i>
+                        <span>
+                            <h5>Sandip Foundation</h5>
+                            <p>B3-TV Room</p>
+                        </span>
+                    </div>
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <span>
+                            <h5>8928147970</h5>
+                            <p>Monday to Friday 10AM - 6PM</p>
+                        </span>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope"></i>
+                        <span>
+                            <h5>jrjordanelite@gmail.com</h5>
+                            <p>Email for further queries</p>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="contact-col">
+
+                    <form action="">
+                        <input type="text" placeholder="Enter Your Name" required>
+                        <input type="email" placeholder="Enter Email Address" required>
+                        <input type="text" placeholder="Enter Your Subject" required>
+                        <textarea rows="8" placeholder="Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </section>
+
+
+    </section>
+
+
+    <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone</p>
+                    <div class="app-logo">
+                        <img src="play-store.png" alt="">
+                        <img src="app-store.png" alt="">
+                    </div>
+                </div>
+                <div class="footer-col-1">
+                    <img src="oni.png">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quidem laboriosam dignissimos
+                        ullam minus iure?</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="#" class="link">Coupons</a></li>
+                        <li><a href="#" class="link">Blog Posts</a></li>
+                        <li><a href="#" class="link">Return Policy</a></li>
+                        <li><a href="#" class="link">Join Affiliates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Folow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="">Copyright 2022 - Onimasu</p>
+        </div>
+    </div>
+
+    <!--SCripto-->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px"
+            }
+            else {
+                MenuItems.style.maxHeight = "0px"
+            }
+        }
+    </script>
+</body>
+
+</html>

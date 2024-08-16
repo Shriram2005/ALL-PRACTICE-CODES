@@ -1,0 +1,151 @@
+{
+    "compiler": {
+        "version": "0.8.18+commit.87f61d96"
+    },
+    "language": "Solidity",
+    "output": {
+        "abi": [
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "name": "certificates",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "candidateName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "certificationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "organizationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startDate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "endDate",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "getCertificateDetails",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "candidateName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "certificationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "organizationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startDate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "endDate",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "_candidateName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_certificationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_organizationName",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "_startDate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "_endDate",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "issueCertificate",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            }
+        ],
+        "devdoc": {
+            "kind": "dev",
+            "methods": {},
+            "version": 1
+        },
+        "userdoc": {
+            "kind": "user",
+            "methods": {},
+            "version": 1
+        }
+    },
+    "settings": {
+        "compilationTarget": {
+            "contracts/2_Owner.sol": "Certificate"
+        },
+        "evmVersion": "paris",
+        "libraries": {},
+        "metadata": {
+            "bytecodeHash": "ipfs"
+        },
+        "optimizer": {
+            "enabled": false,
+            "runs": 200
+        },
+        "remappings": []
+    },
+    "sources": {
+        "contracts/2_Owner.sol": {
+            "keccak256": "0x153ddc9997e6f4559eb9b390449a2f32a62fdda91c88f5a7d8087776f30f0379",
+            "license": "UNLICENSED",
+            "urls": [
+                "bzz-raw://adea8a0300320d896f134af782e775fe62eff0f9c2b67d7c2902c24a33cb5839",
+                "dweb:/ipfs/QmU75o5JiU2uVpMztJjBjPRkoCyEDY6qGtiEwJEq2TNTjA"
+            ]
+        }
+    },
+    "version": 1
+}

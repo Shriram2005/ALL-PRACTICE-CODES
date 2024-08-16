@@ -1,0 +1,7 @@
+a=input("enter firsr number: ")
+b=input("enter second number: ")
+sum=int(a)+int(b)
+subtract=int(a)-int(b)
+print(sum)
+print("the sum is= "+str(sum))
+print(subtract)
